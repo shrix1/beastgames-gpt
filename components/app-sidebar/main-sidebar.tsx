@@ -27,8 +27,10 @@ const MainSidebar = () => {
             <FinalSixCard person={person} key={person.id} />
           ))}
         </section>
-        <div className="flex justify-center items-center mt-1">
-          <p className="text-sm font-mono">Total Votes: 100</p>
+        <div className="flex justify-center items-center mt-1 bg-green-200 w-fit rounded-full mx-auto px-4 py-1">
+          <p className="text-sm font-mono text-green-700">
+            Total Votes: <span className="font-bold">100</span>
+          </p>
         </div>
         <FinalEpisodeCountdown />
       </SidebarContent>

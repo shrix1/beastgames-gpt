@@ -24,17 +24,14 @@ export default function FooterCredits() {
   return (
     <p className="text-center text-sm">
       Built by{" "}
-      <CreditLink href={links.github} className="font-bold">
+      <CreditLink href={links.github} className="font-medium">
         Shri
       </CreditLink>{" "}
       with <br />
-      <CreditLink href={links.nextjs}>NextJS</CreditLink>,{" "}
-      <CreditLink href={links.aiSdk}>AI SDK</CreditLink>,{" "}
-      <CreditLink href={links.shadcn}>Shadcn</CreditLink>,{" "}
-      <CreditLink href={links.tailwind}>Tailwind</CreditLink>,{" "}
-      <CreditLink href={links.supabase}>Supabase</CreditLink>,{" "}
-      <CreditLink href={links.upstash}>Upstash</CreditLink>, and hosted on{" "}
-      <CreditLink href={links.vercel}>Vercel</CreditLink>,{" "}
+      <span className="text-xs">
+        NextJS, AI SDK, Shadcn, Tailwind, Supabase, Upstash, and hosted on
+        Vercel
+      </span>
     </p>
   );
 }

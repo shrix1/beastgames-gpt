@@ -2,13 +2,6 @@ export const links = {
   prime:
     "https://www.primevideo.com/detail/Beast-Games/0TC47K49HUJK01R9FA42BAO22A",
   github: "https://git.new/shri",
-  nextjs: "https://nextjs.org/",
-  tailwind: "https://tailwindcss.com/",
-  shadcn: "https://ui.shadcn.com/",
-  vercel: "https://vercel.com/",
-  supabase: "https://supabase.com/",
-  upstash: "https://upstash.com/",
-  aiSdk: "https://sdk.vercel.ai/",
   opesource: "https://github.com/shrix1/beastgames-gpt",
 };
 

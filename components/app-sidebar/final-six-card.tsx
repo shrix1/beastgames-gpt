@@ -8,7 +8,7 @@ export default function FinalSixCard({
   person: (typeof finalSix)[0];
 }) {
   return (
-    <div className="rounded-lg relative w-[130px] h-[140px] bg-green-400 flex justify-center overflow-hidden group/card cursor-pointer">
+    <div className="rounded-lg relative w-[130px] h-[140px] bg-gray-100 flex justify-center overflow-hidden group/card cursor-pointer">
       <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-br group-hover/card:opacity-0 transform transition-opacity duration-300 from-transparent via-black/10 to-black/80 z-[4]" />
       <p className="absolute text-xl text-white bottom-1 right-1 z-[5] font-mono group-hover/card:hidden">
         #{person.id}

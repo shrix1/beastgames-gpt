@@ -15,7 +15,7 @@ const FinalEpisodeCountdown = () => {
 
   useEffect(() => {
     // Set exact UTC time for global consistency
-    const finalDate = new Date("2024-02-13T01:00:00.000Z"); // 8 PM EST on Feb 13th in UTC
+    const finalDate = new Date("2025-02-13T01:00:00.000Z"); // 8 PM EST on Feb 13th in UTC
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -40,7 +40,7 @@ const FinalEpisodeCountdown = () => {
 
   if (isFinished) {
     return (
-      <div className="flex flex-col items-center gap-3 mt-4 p-4 border rounded-lg mx-3">
+      <div className="flex flex-col items-center shadow-2xl shadow-blue-500/40 gap-3 mt-4 p-4 border rounded-lg mx-3">
         <p className="text-xl font-medium text-center">Final Episode is Out!</p>
         <Link
           href={links.prime}

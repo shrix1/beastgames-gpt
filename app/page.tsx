@@ -1,9 +1,17 @@
-import Image from "next/image";
+import BeastChat from "@/components/beast-chat";
+import Header from "@/components/header";
+import MainSidebar from "@/components/main-sidebar";
 
 export default function Home() {
   return (
-    <main className="w-full h-screen">
-      <h1>Hello World</h1>
-    </main>
+    <section className="w-full h-screen">
+      <div className="flex h-full">
+        <MainSidebar />
+        <div className="flex-1">
+          <Header />
+          <BeastChat />
+        </div>
+      </div>
+    </section>
   );
 }

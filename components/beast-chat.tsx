@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import ChatInput from "./chat-input";
+import { type Message } from "ai";
 
 const BeastChat = () => {
-  const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 

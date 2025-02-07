@@ -1,6 +1,6 @@
 import BeastChat from "@/components/beast-chat";
 import Header from "@/components/header";
-import MainSidebar from "@/components/main-sidebar";
+import MainSidebar from "@/components/app-sidebar/main-sidebar";
 
 export default function Home() {
   return (

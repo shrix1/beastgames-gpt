@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { createOpenAI } from "@ai-sdk/openai";
-import { generateText } from "ai";
+import { generateText, streamText } from "ai";
 import { links, seasonOne } from "@/lib/constants";
 import { z } from "zod";
 
@@ -10,14 +10,7 @@ const openai = createOpenAI({
 
 export async function POST(req: NextRequest) {
   const { messages, votes, prompt } = await req.json();
-  //   const result = streamText({
-  //     model: openai("gpt-4o-mini"),
-  //     // system: getSystemPrompt(votes),
-  //     // messages,
-  //     prompt,
-  //   });
-  //   return result.toDataStreamResponse();
-  const result = await generateText({
+  const { textStream } = streamText({
     model: openai("gpt-4o-mini"),
     system: getSystemPrompt(votes),
     prompt,
@@ -39,8 +32,8 @@ export async function POST(req: NextRequest) {
     //   },
     // },
   });
-  const { text } = result;
-  console.log(result);
+  const text = textStream;
+  console.log(text);
   return new Response(text);
 }
 

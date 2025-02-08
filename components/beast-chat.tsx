@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import ChatInput from "./chat-input";
 import { type Message } from "ai";
+import { Markdown } from "./markdown";
+import { ScrollArea } from "./ui/scroll-area";
 
 const BeastChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -53,12 +55,33 @@ const BeastChat = () => {
   };
 
   return (
-    <main className="flex-1 flex flex-col h-[calc(100vh-64px)] relative">
-      <div className="h-full">
-        {messages.map((message, index) => (
-          <div key={index}>{message.content}</div>
+    <main className="flex-1 flex flex-col h-[calc(100vh-64px)] relative container lg:px-12 xl:px-20 mx-auto">
+      <ScrollArea className="flex-1 p-4">
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`mb-4 ${
+              message.role === "user" ? "text-right" : "text-left"
+            }`}
+          >
+            <span
+              className={`inline-block p-2 rounded-lg ${
+                message.role === "user"
+                  ? "bg-primary text-white"
+                  : message.role === "data"
+                  ? "bg-muted text-muted-foreground"
+                  : "bg-gray-200 text-black"
+              }`}
+            >
+              {message.role === "user" ? (
+                message.content
+              ) : (
+                <Markdown>{message.content}</Markdown>
+              )}
+            </span>
+          </div>
         ))}
-      </div>
+      </ScrollArea>
       <ChatInput
         input={input}
         setInput={setInput}

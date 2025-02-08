@@ -28,7 +28,7 @@ const ChatInput = ({
     <div className="flex justify-center items-center flex-col gap-1 pb-2">
       <form
         onSubmit={handleSubmit}
-        className="w-[calc(100%-20rem)] px-4 relative"
+        className="w-full lg:w-[calc(100%-5rem)] xl:w-[calc(100%-8rem)] px-4 relative"
       >
         <Textarea
           className="min-h-[110px] shadow-md shadow-primary/10 placeholder:font-mono resize-none rounded-xl focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary/50"

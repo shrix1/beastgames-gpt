@@ -1,14 +1,9 @@
 import { createOpenAI } from "@ai-sdk/openai";
 import { convertToCoreMessages, streamText } from "ai";
 import { links, seasonOne } from "@/lib/constants";
-import { Redis } from "@upstash/redis";
-import { Ratelimit } from "@upstash/ratelimit";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import getRatelimit from "@/lib/redis";
 
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -16,11 +11,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
-const ratelimit = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(10, "24 h"),
-  analytics: true,
-});
+const ratelimit = getRatelimit(10, "24 h");
 
 const gpt4oMini = openai("gpt-4o-mini");
 const gemini20Flash = google("gemini-2.0-flash");
@@ -48,7 +39,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { messages, votes } = body;
     const result = streamText({
-      model: gpt4oMini,
+      model: gemini20Flash,
       system: getSystemPrompt(votes),
       messages: convertToCoreMessages(messages),
     });

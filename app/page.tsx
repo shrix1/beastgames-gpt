@@ -6,9 +6,9 @@ import SpoilerAlert from "@/components/spoiler-alert";
 
 export default async function Home() {
   const cookieStore = await cookies();
-  const isWatchedBanner = cookieStore.get("is_watched_beastgames_dialog");
+  const isWatched = cookieStore.get("is_watched_beastgames");
 
-  if (!isWatchedBanner) {
+  if (!isWatched) {
     return <SpoilerAlert />;
   }
 

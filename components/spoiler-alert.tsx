@@ -25,7 +25,7 @@ const SpoilerAlert = () => {
 
   const handleSubmit = () => {
     if (input === pharse) {
-      document.cookie = "is_watched_beastgames_dialog=true";
+      document.cookie = "is_watched_beastgames=true";
       router.push("/");
     } else {
       toast.error(`Please type '${pharse}' to continue`);

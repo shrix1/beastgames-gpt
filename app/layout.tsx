@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://beastgames.vercel.app"),
+  metadataBase: new URL("https://beastgames-gpt.vercel.app"),
   title: "BeastGamesGPT",
   description:
     "BeastGamesGPT is a chatbot that can explore about the beastgames series on amazon-prime",

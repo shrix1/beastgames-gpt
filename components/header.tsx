@@ -8,8 +8,9 @@ import Image from "next/image";
 const Header = () => {
   return (
     <header className="w-full h-16 flex justify-center items-center bg-white border-b relative">
-      <div className="absolute left-4">
+      <div className="absolute left-4 flex items-center gap-1 justify-center">
         <SidebarTrigger className="size-9" />
+        <p className="text-sm text-gray-500 animate-pulse">Voter here</p>
       </div>
       <h1 className="text-2xl font-bold flex items-center gap-2">
         <Image src="/beast.jpeg" alt="BeastGamesGPT" width={42} height={42} />

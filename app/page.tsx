@@ -24,7 +24,6 @@ export default async function Home() {
       },
     });
     const data = await res.json();
-    console.log(data);
     if (data.error) {
       console.error("Failed to fetch votes");
       return [];

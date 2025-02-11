@@ -1,4 +1,4 @@
-import BeastChat from "@/components/beast-chat";
+import ChatUI from "@/components/chat-ui";
 import Header from "@/components/header";
 import MainSidebar from "@/components/app-sidebar/main-sidebar";
 import { cookies } from "next/headers";
@@ -44,7 +44,7 @@ export default async function Home() {
         <MainSidebar isVoted={isVoted?.value ? true : false} votes={votes} />
         <div className="flex-1">
           <Header />
-          <BeastChat />
+          <ChatUI votes={votes} />
         </div>
       </div>
     </section>

@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## BeastGamesGPT
 
-## Getting Started
+BeastGamesGPT is a chatbot that can explore about the beastgames series on amazon-prime
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js
+- Tailwind CSS
+- Shadcn UI
+- AI SDK by Vercel
+- OpenAI API
+- Google Gemini API
+- Vercel - hosting
+- Upstash (Redis) - for rate limiting
+- Supabase (Database) - for voting
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Help me out on
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Improve the Prompt and AI Context Data
+- Improve the UI/UX if you want
+- Vulnerability issue if you find any, thanks in advance
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How to contribute
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `git clone https://github.com/shri-dev/beastgames-gpt.git`
+- `cd beastgames-gpt`
+- `pnpm install`
+- `cp .env.example .env` and add your own env variables
+- `pnpm dev`

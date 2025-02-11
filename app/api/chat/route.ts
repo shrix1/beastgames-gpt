@@ -15,6 +15,7 @@ const ratelimit = getRatelimit(10, "24 h");
 
 const gpt4oMini = openai("gpt-4o-mini");
 const gemini20Flash = google("gemini-2.0-flash");
+const model = process.env.MODEL === "openai" ? gpt4oMini : gemini20Flash;
 
 export async function POST(req: Request) {
   try {
@@ -39,7 +40,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { messages, votes } = body;
     const result = streamText({
-      model: gemini20Flash,
+      model,
       system: getSystemPrompt(votes),
       messages: convertToCoreMessages(messages),
     });

@@ -9,6 +9,8 @@ import { TextShimmer } from "./ui/text-shimmer";
 import ChatEmptyState from "./chat-empty-state";
 import { Vote } from "./app-sidebar/main-sidebar";
 import { finalSix } from "@/lib/constants";
+import Image from "next/image";
+import { User } from "lucide-react";
 
 const ChatUI = ({ votes }: { votes: Vote[] }) => {
   const finalSixWithVotes = finalSix.map((person) => ({
@@ -33,10 +35,19 @@ const ChatUI = ({ votes }: { votes: Vote[] }) => {
           messages.map((message) => (
             <div
               key={message.id}
-              className={`mb-4 ${
-                message.role === "user" ? "text-right" : "text-left"
+              className={`mb-4 flex items-start gap-2 ${
+                message.role === "user" ? "flex-row-reverse" : "flex-row"
               }`}
             >
+              {message.role === "user" ? (
+                <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 border">
+                  <User className="size-6" />
+                </div>
+              ) : (
+                <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border">
+                  <Image src="/beast.jpeg" alt="Beast" width={32} height={32} />
+                </div>
+              )}
               <span
                 className={`inline-block p-2 rounded-lg ${
                   message.role === "user"

@@ -29,8 +29,13 @@ export const metadata: Metadata = {
     title: "BeastGamesGPT",
     description:
       "BeastGamesGPT is a chatbot that can explore about the beastgames series on amazon-prime",
-    images: "/og.png",
-    url: "/",
+    images: [
+      {
+        url: "/og.png",
+        alt: "BeastGamesGPT",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

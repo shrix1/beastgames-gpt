@@ -1,23 +1,67 @@
 import { NextRequest } from "next/server";
 import { createOpenAI } from "@ai-sdk/openai";
-import { generateText, streamText } from "ai";
+import { streamText } from "ai";
 import { links, seasonOne } from "@/lib/constants";
-import { z } from "zod";
+import { Redis } from "@upstash/redis";
+import { Ratelimit } from "@upstash/ratelimit";
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
+
+const ratelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(10, "24 h"),
+  analytics: true,
+});
 
 const openai = createOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 export async function POST(req: NextRequest) {
-  const { messages, votes, prompt } = await req.json();
-  const { textStream } = streamText({
-    model: openai("gpt-4o-mini"),
-    system: getSystemPrompt(votes),
-    prompt,
-  });
-  const text = textStream;
-  console.log(text);
-  return new Response(text);
+  try {
+    let rateLimitData;
+    if (process.env.NODE_ENV === "production") {
+      const ip = req.headers.get("x-forwarded-for") ?? "127.0.0.1";
+      rateLimitData = await ratelimit.limit(ip);
+      const { success, limit, reset, remaining } = rateLimitData;
+
+      if (!success) {
+        return new Response("Rate limit exceeded. Try again in 24 hours.", {
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": limit.toString(),
+            "X-RateLimit-Remaining": remaining.toString(),
+            "X-RateLimit-Reset": reset.toString(),
+          },
+        });
+      }
+    }
+
+    const { messages, votes, prompt } = await req.json();
+    const { textStream } = streamText({
+      model: openai("gpt-4o-mini"),
+      system: getSystemPrompt(votes),
+      prompt,
+    });
+    const text = textStream;
+    console.log(text);
+    return new Response(text, {
+      headers:
+        process.env.NODE_ENV === "production" && rateLimitData
+          ? {
+              "X-RateLimit-Limit": rateLimitData.limit.toString(),
+              "X-RateLimit-Remaining": rateLimitData.remaining.toString(),
+              "X-RateLimit-Reset": rateLimitData.reset.toString(),
+            }
+          : {},
+    });
+  } catch (error) {
+    console.error("Error:", error);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 }
 
 function getSystemPrompt(votes: any) {

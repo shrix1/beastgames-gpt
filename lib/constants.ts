@@ -212,7 +212,15 @@ export const seasonOne = {
       link: "https://www.primevideo.com/region/eu/detail/0L0085ZFJ6PFU5O7T4RLWVVOG5",
       description:
         "The final 10 use all of their current winnings to bribe their way to the finals. Lying and deception are at an all-time high, making it difficult to trust even your closest allies.",
-      whatHappened: ``,
+      whatHappened: `The game starts when Twana seems like the early favourite but since once you have been voted in you are no longer 
+      allowed to vote many players think another strategy would be better so Emma gets voted into the final 6. In the next round, after
+       giving 3 contestants 750 dollars, Jeff is voted in, followed by Twana and Yessi (who only made it because Twana gave her an
+        additional 10 000 dollars). In the next round after lying to many players Gage is voted in leaving only 1 more open spot 
+        after Queen, Michael, JC and, Patrick were all talking on the phone and after everyone except Michael has gotten a vote Michael
+         votes in Courtney (the only player who wasn't on the phone the entire time) as the final player in the top 6.
+          Eliminating JC, Michael, Queen and, Patrick. After the game is over MrBeast tells all the remaining contestants that the grand prize
+           of 5 million dollars would double if a player completes a coin flip. Because he made a successful coin flip to save him from 
+           elimination Gage accepts the coin flip and throws it in the air as the episode finishes without knowing if it's heads or (his pick) tails.`,
     },
     {
       title: "S1 E10 - TBA",

@@ -52,7 +52,7 @@ const ChatInput = ({
         </Button>
       </form>
       <p className="text-sm text-gray-500">
-        All data is from{" "}
+        Episodes data is from{" "}
         <Link href={links.wikipedia} className="underline">
           Wikipedia
         </Link>

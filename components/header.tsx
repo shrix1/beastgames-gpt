@@ -3,6 +3,7 @@ import { SidebarTrigger } from "./ui/sidebar";
 import { Button } from "./ui/button";
 import { links } from "@/lib/constants";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   return (
@@ -10,7 +11,10 @@ const Header = () => {
       <div className="absolute left-4">
         <SidebarTrigger className="size-9" />
       </div>
-      <h1 className="text-2xl font-bold">BeastGamesGPT</h1>
+      <h1 className="text-2xl font-bold flex items-center gap-2">
+        <Image src="/beast.jpeg" alt="BeastGamesGPT" width={42} height={42} />
+        <Link href="/">BeastGamesGPT</Link>
+      </h1>
       <Link href={links.opesource} className="absolute right-4">
         <Button className="size-10 md:w-auto md:h-auto bg-transparent md:bg-primary shadow-none md:shadow-md hover:bg-transparent">
           <svg

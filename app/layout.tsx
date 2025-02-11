@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/beast.jpeg",
   },
   openGraph: {
     title: "BeastGamesGPT",

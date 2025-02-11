@@ -1,8 +1,17 @@
 import BeastChat from "@/components/beast-chat";
 import Header from "@/components/header";
 import MainSidebar from "@/components/app-sidebar/main-sidebar";
+import { cookies } from "next/headers";
+import SpoilerAlert from "@/components/spoiler-alert";
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const isWatchedBanner = cookieStore.get("is_watched_beastgames_dialog");
+
+  if (!isWatchedBanner) {
+    return <SpoilerAlert />;
+  }
+
   return (
     <section className="w-full h-screen">
       <div className="flex h-full">

@@ -52,9 +52,15 @@ const ChatInput = ({
         </Button>
       </form>
       <p className="text-sm text-gray-500">
-        <Link href={links.prime} className="underline font-mono">
-          Go watch BeastGames on Amazon Prime
+        All data is from{" "}
+        <Link href={links.wikipedia} className="underline">
+          Wikipedia
         </Link>
+        . Watch BeastGames on{" "}
+        <Link href={links.prime} className="underline">
+          Prime Video
+        </Link>
+        .
       </p>
     </div>
   );

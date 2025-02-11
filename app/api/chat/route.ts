@@ -1,13 +1,19 @@
-import { NextRequest } from "next/server";
 import { createOpenAI } from "@ai-sdk/openai";
-import { streamText } from "ai";
+import { convertToCoreMessages, streamText } from "ai";
 import { links, seasonOne } from "@/lib/constants";
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL!,
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
+const openai = createOpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const google = createGoogleGenerativeAI({
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
 const ratelimit = new Ratelimit({
@@ -16,11 +22,10 @@ const ratelimit = new Ratelimit({
   analytics: true,
 });
 
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const gpt4oMini = openai("gpt-4o-mini");
+const gemini20Flash = google("gemini-2.0-flash");
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   try {
     let rateLimitData;
     if (process.env.NODE_ENV === "production") {
@@ -40,15 +45,15 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const { messages, votes, prompt } = await req.json();
-    const { textStream } = streamText({
-      model: openai("gpt-4o-mini"),
+    const body = await req.json();
+    const { messages, votes } = body;
+    const result = streamText({
+      model: gpt4oMini,
       system: getSystemPrompt(votes),
-      prompt,
+      messages: convertToCoreMessages(messages),
     });
-    const text = textStream;
-    console.log(text);
-    return new Response(text, {
+
+    return result.toDataStreamResponse({
       headers:
         process.env.NODE_ENV === "production" && rateLimitData
           ? {
@@ -67,6 +72,7 @@ export async function POST(req: NextRequest) {
 function getSystemPrompt(votes: any) {
   return `
 Hey there! I'm your friendly BeastGames storyteller, and I've got all the inside scoop on everything that's happening in this epic competition! 
+Remember, Dont answer any question that is not related to BeastGames and MrBeast. Even if the user ask about something else, you should say ask me about BeastGames and MrBeast.
 
 Let me paint you a picture: Imagine MrBeast, the YouTube sensation with a whopping 358M subscribers, gathering 2000 people for the most incredible competition ever. We're talking about a \$5,000,000 prize - the biggest in TV history! And now, we're down to our final 6 contestants, each with their own amazing story.
 

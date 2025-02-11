@@ -1,6 +1,7 @@
 export const links = {
   prime:
     "https://www.primevideo.com/detail/Beast-Games/0TC47K49HUJK01R9FA42BAO22A",
+  wikipedia: "https://en.wikipedia.org/wiki/Beast_Games",
   github: "https://git.new/shri",
   opesource: "https://github.com/shrix1/beastgames-gpt",
 };

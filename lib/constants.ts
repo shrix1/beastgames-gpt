@@ -227,11 +227,19 @@ export const seasonOne = {
            elimination Gage accepts the coin flip and throws it in the air as the episode finishes without knowing if it's heads or (his pick) tails.`,
     },
     {
-      title: "S1 E10 - TBA",
+      title: "$10,000,000 Coin Flip",
       releaseDate: "February 13, 2025",
-      link: "TBA",
-      description: "TBA",
-      whatHappened: ``,
+      link: "https://www.primevideo.com/region/eu/detail/0TC47K49HUJK01R9FA42BAO22A/",
+      description:
+        "One contestant flips a coin to potentially double the grand prize to $10,000,000 or get eliminated. Beast Games crowns the winner of season 1.",
+      whatHappened: `The episodes starts with a successful called coin flip by Gage. The prize money is now doubled to $10,000,000. For the first round of elimination the contestants choose 
+      a platform to stand on based on the order they were voted in the episode. Emma gets to choose first next to Jeff. They now take turns to throw a red ball in an opponents tube in front 
+      of the platform. Once they score, the opponent is eliminated. Jeff eliminates Courtney first and then Emma is eliminated by Yesenia. The next game is memorizing a pattern and walking 
+      the pattern on the ground. If you succeed you can choose who to eliminate but if you fail you are eliminated. Jeff offers to help Yesenia in her attempt but she declines his help and 
+      fails on the first step because she chose the wrong starting point. This leaves Gage, Twana and Jeff as the last three contestants. The next player is eliminated by the choice of the 
+      Top 50 contestants. The players have the choice to take a bribe of $1M if they think they were voted out. Gage takes the bribe and it is revealed that Twana was the eliminated choice. 
+      Twana and Jeff move on to the final game which is a shuffle of ten briefcases of which one has a check over the $10M in it. Twana shuffles it and leaves Jeff the choice. He chooses the 
+      right briefcase in the first round and is the winner of $10M.`,
     },
   ],
 };

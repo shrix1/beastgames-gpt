@@ -16,22 +16,22 @@ export default async function Home() {
   const isWatched = cookieStore.get("is_watched_beastgames");
   const isVoted = cookieStore.get("voted");
 
-  async function getAllVotes() {
-    const res = await fetch(`${getUrl()}/api/vote`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await res.json();
-    if (data.error) {
-      console.error("Failed to fetch votes");
-      return [];
-    }
-    return data;
-  }
+  // async function getAllVotes() {
+  //   const res = await fetch(`${getUrl()}/api/vote`, {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   const data = await res.json();
+  //   if (data.error) {
+  //     console.error("Failed to fetch votes");
+  //     return [];
+  //   }
+  //   return data;
+  // }
 
-  const votes = (await getAllVotes()) || [];
+  // const votes = (await getAllVotes()) || [];
 
   if (!isWatched?.value) {
     return <SpoilerAlert />;
@@ -40,10 +40,10 @@ export default async function Home() {
   return (
     <section className="w-full h-screen">
       <div className="flex h-full">
-        <MainSidebar isVoted={isVoted?.value ? true : false} votes={votes} />
+        <MainSidebar isVoted={isVoted?.value ? true : false} votes={[]} />
         <div className="flex-1">
           <Header />
-          <ChatUI votes={votes} />
+          <ChatUI votes={[]} />
         </div>
       </div>
     </section>

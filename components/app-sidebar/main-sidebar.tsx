@@ -8,11 +8,13 @@ import {
   SidebarFooter,
 } from "../ui/sidebar";
 import FooterCredits from "./footer-credits";
-import { finalSix } from "@/lib/constants";
+import { finalSix, seasonOne } from "@/lib/constants";
 import FinalSixCard from "./final-six-card";
 import FinalEpisodeCountdown from "./countdown";
 import { toast } from "sonner";
 import { RefreshCcw } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export type Vote = {
   person_id: number;
@@ -84,25 +86,60 @@ const MainSidebar = ({
   return (
     <Sidebar>
       <SidebarHeader className="text-2xl font-bold text-center mt-2">
-        Final 6 Peoples
-        <p className="text-sm font-medium text-muted-foreground -mt-1">
-          Who do you think will win? Click to vote
-        </p>
+        Season 1 Beast Games
+        <p className="text-sm font-medium text-muted-foreground -mt-1"></p>
       </SidebarHeader>
       <SidebarContent className="flex flex-col mt-2">
-        <section className="grid grid-cols-2 gap-2 px-3">
-          {finalSix.map((person) => (
-            <FinalSixCard
-              person={person}
-              key={person.id}
-              isVoted={isVotedNow}
-              votes={allVotes}
-              isLoading={isLoading}
-              handleVote={handleVote}
-            />
-          ))}
+        <section className="grid grid-cols-1 gap-2 px-3">
+          {/* {finalSix.map((person) => {
+            return (
+              <FinalSixCard
+                person={person}
+                key={person.id}
+                isVoted={isVotedNow}
+                votes={allVotes}
+                handleVote={handleVote}
+                isLoading={isLoading}
+              />
+            );
+          })} */}
+          <div className="bg-gradient-to-r from-blue-200 to-blue-400 p-4 rounded-lg text-center">
+            <h3 className="text-lg font-bold mb-2">🏆 Winner 🏆 </h3>
+            <div className="relative w-40 h-40 mx-auto mb-2">
+              <Image
+                src="/finalsix/831.png"
+                alt="Jeff"
+                fill
+                className="object-cover rounded-full border-4 border-blue-500"
+              />
+            </div>
+            <p className="text-xl font-bold">Jeff (#831)</p>
+            <p className="text-gray-700 font-mono font-bold mt-1">
+              Won $10,000,000
+            </p>
+          </div>
+
+          <p className="text-sm text-gray-700 text-center">
+            Jeff going to use the money to find cure for this child's rare
+            disease.
+          </p>
         </section>
-        <div className="flex justify-center items-center mt-1 w-fit  mx-auto flex-col gap-2">
+        <section className="mt-6 px-3">
+          <h3 className="font-semibold mb-2 text-center">All Episodes</h3>
+          <div className="flex flex-col gap-2">
+            {seasonOne.episodes.map((episode) => (
+              <Link
+                key={episode.title}
+                href={episode.link}
+                className="text-sm p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                target="_blank"
+              >
+                {episode.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+        {/* <div className="flex justify-center items-center mt-1 w-fit  mx-auto flex-col gap-2">
           <div className="flex items-center gap-1.5">
             <div className="text-xs font-mono text-blue-700 bg-blue-200 px-4 py-1 rounded-full flex items-center justify-center gap-2">
               <div className="w-1.5 h-1.5 bg-blue-700 rounded-full animate-pulse" />
@@ -121,9 +158,9 @@ const MainSidebar = ({
           <p className="text-sm font-mono text-green-700 px-4 py-1 bg-green-200 rounded-full">
             Total Votes: <span className="font-bold">{totalVotes}</span>
           </p>
-        </div>
+        </div> */}
 
-        <FinalEpisodeCountdown />
+        {/* <FinalEpisodeCountdown /> */}
       </SidebarContent>
       <SidebarFooter className="border-t px-2 py-3">
         <FooterCredits />

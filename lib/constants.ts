@@ -45,6 +45,7 @@ export const seasonOne = {
       title: "S1 E1 - 1,000 People Fight For $5,000,000",
       releaseDate: "December 19, 2024",
       link: "https://www.primevideo.com/region/eu/detail/0TC47K49HUJK01R9FA42BAO22A",
+      yt: "https://www.youtube.com/watch?v=C9Qfcjf7L-I",
       description:
         "I gathered 1,000 people to fight for $5,000,000, the LARGEST cash prize in TV history! I don’t know why you’re still reading this, go watch it right now! No more spoilers.",
       whatHappened: `The episode begins with MrBeast announcing the grand prize of $5,000,000, and introduces the 1,000 contestants who were not eliminated 
@@ -61,6 +62,7 @@ export const seasonOne = {
       title: "S1 E2 - 500 People Trapped In My City",
       releaseDate: "December 19, 2024",
       link: "https://www.primevideo.com/region/eu/detail/0MTGBEIKUWRDUJFAVP76YB9IJS",
+      yt: "https://www.youtube.com/watch?v=Yv8xg0FMDXw",
       description:
         "The remaining 500 contestants must fight to stay in the MASSIVE city I built from scratch (not joking). The end of the episode may be the craziest thing that’s ever happened in television history. Watch it right now!",
       whatHappened: `493 players settle in Beast City. The players line up to receive 4 tokens, with hints on them, corresponding to the 4 floors they 
@@ -82,6 +84,7 @@ export const seasonOne = {
     {
       title: "S1 E3 - The Solitary Experiment",
       releaseDate: "December 26, 2024",
+      yt: "https://www.youtube.com/watch?v=3uKsaGRK3yw",
       link: "https://www.primevideo.com/region/eu/detail/0PBGYNOC7M3JSLWR928LLQI4X9",
       description:
         "What would happen if three best friends were trapped in a room, but only two could escape? Watch and see for yourself right now!",

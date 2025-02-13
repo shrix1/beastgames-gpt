@@ -27,3 +27,9 @@ BeastGamesGPT is a chatbot that can explore about the beastgames series on amazo
 - `pnpm install`
 - `cp .env.example .env` and add your own env variables
 - `pnpm dev`
+
+## before 
+<img width="1917" alt="Screenshot 2025-02-13 at 8 03 59 PM" src="https://github.com/user-attachments/assets/de6bb4a7-1edb-4f6a-a640-c982365402c7" />
+
+## after
+<img width="1920" alt="Screenshot 2025-02-13 at 8 04 11 PM" src="https://github.com/user-attachments/assets/92a9c6d0-981c-42b0-9bb8-dac99c673983" />

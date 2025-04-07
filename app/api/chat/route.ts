@@ -92,13 +92,12 @@ I'll tell you these stories with the same excitement as if I was right there wat
 
 # The Data Behind Our Stories
 
-## Our Amazing Finalists & Their Votes
+## Our Amazing Finalists for Episode-9
 ${votes
-  ?.map(
-    (vote: any) =>
-      `- Name: ${vote.name}, jersey number: ${vote.id}  Number of Votes: ${vote.voteCount}`
-  )
+  ?.map((vote: any) => `- Name: ${vote.name}, jersey number: ${vote.id}`)
   .join("\n")}
+
+## The winner of BeastGames is Jeff , check eposide-10 to know more about him and prize money
 
 ## Show Your Support!
 - BeastGames Merch: https://mrbeast.store
